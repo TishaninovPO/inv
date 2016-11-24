@@ -181,7 +181,7 @@ object Form5: TForm5
   object DBLookupComboBox1: TDBLookupComboBox
     Left = 144
     Top = 40
-    Width = 185
+    Width = 497
     Height = 21
     DataField = 'tips'
     DataSource = DM.DataSource1
@@ -287,6 +287,7 @@ object Form5: TForm5
     ParentShowHint = False
     ShowHint = True
     TabOrder = 17
+    Visible = False
     OnClick = Button1Click
   end
   object DBEdit8: TDBEdit

@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 482
-  Top = 198
+  Left = 262
+  Top = 225
   Width = 1149
   Height = 689
   Caption = #1048#1085#1074#1077#1085#1090#1072#1088#1080#1079#1072#1094#1080#1103
@@ -21,9 +21,9 @@ object Form2: TForm2
     Left = 0
     Top = 0
     Width = 225
-    Height = 631
+    Height = 643
     Align = alLeft
-    Color = clActiveCaption
+    Color = clInactiveBorder
     TabOrder = 1
     object Label2: TLabel
       Left = 16
@@ -87,8 +87,8 @@ object Form2: TForm2
       Kind = bkCancel
     end
     object Button7: TButton
-      Left = 104
-      Top = 560
+      Left = 224
+      Top = 568
       Width = 123
       Height = 41
       Caption = #1055#1088#1080#1082#1088#1077#1087#1080#1090#1100' '#1076#1086#1082'-'#1090#1099
@@ -125,9 +125,9 @@ object Form2: TForm2
   object PageControl1: TPageControl
     Left = 225
     Top = 0
-    Width = 908
-    Height = 631
-    ActivePage = TabSheet4
+    Width = 916
+    Height = 643
+    ActivePage = TabSheet1
     Align = alClient
     BiDiMode = bdLeftToRight
     MultiLine = True
@@ -167,7 +167,6 @@ object Form2: TForm2
         OnDblClick = DBGrid1DblClick
         OnKeyDown = DBGrid1KeyDown
         OnKeyPress = DBGrid1KeyPress
-        OnKeyUp = DBGrid1KeyUp
         Columns = <
           item
             Expanded = False
@@ -318,8 +317,8 @@ object Form2: TForm2
         OnClick = Button8Click
       end
       object Button9: TButton
-        Left = 576
-        Top = -24
+        Left = 552
+        Top = 0
         Width = 113
         Height = 49
         Caption = 'Button9'
@@ -329,7 +328,7 @@ object Form2: TForm2
       end
       object Button10: TButton
         Left = 688
-        Top = -32
+        Top = -8
         Width = 145
         Height = 49
         Caption = 'Button10'

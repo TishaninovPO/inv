@@ -103,14 +103,13 @@ type
     procedure Button11Click(Sender: TObject);
 
 
-    procedure DBGrid1KeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
     procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure DBGrid1CellClick(Column: TColumn);
     procedure Button12Click(Sender: TObject);
-   
+
+
 
 
 
@@ -922,20 +921,27 @@ Delete(s,Pos(' ',s),Length(s));
 
 
 
-
-
-     DM.ADOTable1.Filtered:= True;
-     DM.ADOTable1.Filter:= '[id_fio] = '+s;
-
-
-
-
+            DM.ADOTable1.Filtered:= false;
+                DM.ADOTable1.Filter:= '';
 
 
  except
+                   try
+                   DM.ADOTable1.Active:= false;
+     DM.ADOTable1.Filtered:= True;
+     DM.ADOTable1.Filter:= '[id_fio] = '+s;
+                      DM.ADOTable1.Active:= true;
+                                 Form2.DBGrid1.Refresh;
+                                    Form2.DBGrid1.Repaint;
+                                      Form2.DBGrid1.Update;
+                                        Form2.DBGrid1.UpdateControlState;
+
+                   except
+
+
 
  end;
- end;
+ end; end;
 
 procedure TForm2.Button11Click(Sender: TObject);
 begin
@@ -953,55 +959,7 @@ end;
 
 
 
-procedure TForm2.DBGrid1KeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-var
-  s,sp,spp:string;
-  a,b:char;
-Sq,S1q: String;
-    iq,jq: Integer;
-begin
- try
-      Sq := PChar(NetTree.Selected.Text);
-  for iq := 1 to Length(Sq) do
-    if Sq[iq] = ' ' then
-      Break;
-  jq := iq+1;
-  while Sq[jq] <> ' ' do
-    begin
-      S1q := S1q+Sq[jq];
-      jq := jq+1;
-    end;
 
-      Edit2.Text:=s1q  ;
-   spp:=  PChar(NetTree.Selected.Text);
-     Delete(spp,Pos(' ',spp),Length(spp));
-     s:=PChar(NetTree.Selected.Text);
-     sp:=PChar(NetTree.Selected.Text);
-     Delete(sp,Pos(' ',sp),Length(sp));
-      Edit1.Text:=sp;
-
-Delete(s,Pos(' ',s),Length(s));
-
-
-
-
-
-
-
-
-
-     DM.ADOTable1.Filtered:= True;
-     DM.ADOTable1.Filter:= '[id_fio] = '+s;
-
-
-
-
-
-
- except
-
- end; end;
 
 procedure TForm2.DBGrid1KeyPress(Sender: TObject; var Key: Char);
 var
@@ -1115,15 +1073,16 @@ begin
       Sq := PChar(NetTree.Selected.Text);
   for iq := 1 to Length(Sq) do
     if Sq[iq] = ' ' then
-      Break;
+
   jq := iq+1;
   while Sq[jq] <> ' ' do
     begin
       S1q := S1q+Sq[jq];
       jq := jq+1;
+
     end;
 
-      Edit2.Text:=s1q  ;
+         Edit2.Text:=s1q  ;
    spp:=  PChar(NetTree.Selected.Text);
      Delete(spp,Pos(' ',spp),Length(spp));
      s:=PChar(NetTree.Selected.Text);
@@ -1140,8 +1099,8 @@ Delete(s,Pos(' ',s),Length(s));
 
 
 
+           DM.ADOTable1.Filtered:= True;
 
-     DM.ADOTable1.Filtered:= True;
      DM.ADOTable1.Filter:= '[id_fio] = '+s;
 
 
@@ -1150,7 +1109,7 @@ Delete(s,Pos(' ',s),Length(s));
 
 
  except
-
+    ShowMessage('ֲûבונטעו װָ־');
  end; end;
 
 procedure TForm2.Button12Click(Sender: TObject);
@@ -1167,6 +1126,10 @@ begin
       break;
     end;
 end;
+
+
+
+
 
 end.
 

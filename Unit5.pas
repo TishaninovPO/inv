@@ -172,7 +172,16 @@ begin
 
      Form5.DBLookupComboBox6.KeyValue:=DBEdit11.text;
      form5.DBEdit5.Text:='1';
+      form5.DBEdit1.Text:='-';
+       form5.DBEdit2.Text:='-';
+
+
+
+       DM.ADOtable1.Fields.Fields[5].AsString:= form5.DBEdit1.Text;
+       DM.ADOtable1.Fields.Fields[6].AsString:= form5.DBEdit2.Text;
+
      DM.ADOtable1.Fields.Fields[27].AsString:= form5.DBEdit5.Text;
+
 
      DM.ADOtable1.Fields.Fields[8].AsString:=Form5.DBLookupComboBox3.KeyValue;
      DM.ADOtable1.Fields.Fields[13].AsString:=Form5.DBLookupComboBox6.KeyValue;
